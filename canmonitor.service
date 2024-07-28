@@ -1,0 +1,15 @@
+[Unit]
+
+Description=Can NMEA200 monitor service
+
+After=NetworkManager.service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/home/pi/canmonitor.service/canmonitor.py
+
+[Install]
+WantedBy=multi-user.target
