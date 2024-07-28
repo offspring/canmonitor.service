@@ -2,7 +2,7 @@
 all:
 
 install:
-	chmod a+x ./canmonitor.sh
+	chmod a+x ./canmonitor.py
 	sudo cp ./canmonitor.service /etc/systemd/system/
 	sudo systemctl enable canmonitor.service
 
