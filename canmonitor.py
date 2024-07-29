@@ -60,12 +60,11 @@ def parse_can_id(canid: int):
         # PDU2 format, the destination is implied global and the PGN is extended
         dst = 0xFF
         pgn = (RDP << 16) + (PF << 8) + PS
-    # 4,129038,0,255
     return f"{pri},{pgn},{src},{dst}"
 
 
 def dump_in_canboat(canid: int, data: bytearray):
-    """dump in canboat"""
+    """dump in canboat candump2analyzer"""
     # candump2analyzer format
     # "2024-07-29-12:55:17.133,7,126993,141,255,8,30,75,7c,cf,ff,ff,ff,ff"
     # "2024-07-29-12:48:36.815,4,129038,0,255,2,e4,ff"
