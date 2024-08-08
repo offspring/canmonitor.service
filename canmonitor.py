@@ -95,8 +95,8 @@ def main():
         for msg in bus:
             # output = dump_in_candmp(msg.arbitration_id, msg.data)
             output = dump_in_canboat(msg.arbitration_id, msg.data)
-            # output_file.write(text=f"{output}\n")
-            print(output)
+            output_file.write(text=f"{output}\n")
+            #print(output)
 
 
 if __name__ == "__main__":

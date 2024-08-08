@@ -28,3 +28,9 @@ restart:
 
 status:
 	-sudo systemctl -l status $(SERVICE_NAME)
+
+log:
+	tail -f $(shell ls -1rt ./logs/* | tail -1)  | ~/workspace/offspring/canboat/canboat/rel/linux-aarch64/analyzer
+
+test:
+	tail -f $(shell ls -1rt ./logs/* | tail -1)  | ~/workspace/offspring/canboat/canboat/rel/linux-aarch64/analyzer
