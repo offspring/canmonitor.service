@@ -2,6 +2,8 @@
 
 SERVICE_NAME:=canmonitor
 
+LOGDIR:=$(CURDIR)/logs
+
 PYTHON_BIN:=python3
 PYTHON_SYSTEM_BIN:=$(shell which $(PYTHON_BIN))
 
@@ -64,6 +66,7 @@ mypy: ## Run mypy for python code.
 	$(call PYTHON_RUN, -m mypy $(PYTHON_FILES))
 
 install: ## Install service.
+	mkdir -p $(LOGDIR)
 	chmod a+x ./canmonitor.py
 	sudo cp ./$(SERVICE_NAME).service /etc/systemd/system/
 	$(MAKE)	enable
@@ -90,7 +93,7 @@ status: ## Check service status.
 	-sudo systemctl -l status $(SERVICE_NAME)
 
 log: ## Tail recent log
-	tail -f $(shell ls -1rt ./logs/* | tail -1) | ~/workspace/offspring/canboat/canboat/rel/linux-aarch64/analyzer
+	tail -f $(shell ls -1rt $(LOGDIR)/* | tail -1) | ~/workspace/offspring/canboat/canboat/rel/linux-aarch64/analyzer
 
 run-console: ## Run in the console
 	PYTHONUNBUFFERED=1 $(call PYTHON_RUN, ./canmonitor.py) | ~/workspace/offspring/canboat/canboat/rel/linux-aarch64/analyzer
