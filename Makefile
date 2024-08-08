@@ -96,7 +96,7 @@ log: ## Tail recent log
 	tail -f $(shell ls -1rt $(LOGDIR)/* | tail -1) | ~/workspace/offspring/canboat/canboat/rel/linux-aarch64/analyzer
 
 run-console: ## Run in the console
-	PYTHONUNBUFFERED=1 $(call PYTHON_RUN, ./canmonitor.py) | ~/workspace/offspring/canboat/canboat/rel/linux-aarch64/analyzer
+	PYTHONUNBUFFERED=1 $(PYTHON_BIN) ./canmonitor.py | ~/workspace/offspring/canboat/canboat/rel/linux-aarch64/analyzer
 
 run-temp-file: ## Run in to temp file
-	$(call PYTHON_RUN, ./canmonitor.py -o "$(CURDIR)/temp.log" )
+	$(PYTHON_BIN) ./canmonitor.py -o "$(CURDIR)/temp.log"
