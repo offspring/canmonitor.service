@@ -1,2 +1,7 @@
+.venv/
 __pycache__/
+
 logs/
+
+.vscode/
+*.service.code-workspace

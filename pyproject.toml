@@ -1,0 +1,16 @@
+[tool.black]
+line-length = 120
+
+[tool.mypy]
+
+[[tool.mypy.overrides]]
+module = [
+]
+ignore_missing_imports = true
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = [
+]
+
+[tool.pylint.basic]
+max-line-length = 120

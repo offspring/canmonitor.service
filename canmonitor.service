@@ -9,7 +9,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=root
-ExecStart=/home/pi/canmonitor.service/canmonitor.py
+ExecStart=/home/pi/canmonitor.service/canmonitor.py -o "/home/pi/canmonitor.service/logs/tempest.log"
 
 [Install]
 WantedBy=multi-user.target
